@@ -1,10 +1,16 @@
 var express = require('express');
 var app = express();
-require('dotenv').config()
+require('dotenv').config();
+var bodyParser = require('body-parser');
 
 
 app.use(function(req, res, next) {
   console.log(req.method + " " + req.path + " - " + req.ip);
+  next();
+});
+
+app.use(function(req, res, next) {
+  bodyParser.urlencoded({extended: false});
   next();
 });
 
@@ -40,6 +46,7 @@ app.get("/:word/echo", function(req, res) {
 app.get("/name", function(req, res) {
     res.json({ name: req.query.first + " " + req.query.last })
 });
+
 
 
 
