@@ -9,8 +9,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(function(req, res, next) {
-  return bodyParser.urlencoded({extended: false});
+app.use(bodyParser.urlencoded({extended: false});
 
   next();
 });
