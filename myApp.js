@@ -4,17 +4,14 @@ require('dotenv').config();
 var bodyParser = require('body-parser');
 
 
-app.use(function(req, res, next) {
-  bodyParser.urlencoded({ extended: false });
-  next();
-});
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
   console.log(req.method + " " + req.path + " - " + req.ip);
   next();
 });
 
-app.use(bodyParser.json());
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
