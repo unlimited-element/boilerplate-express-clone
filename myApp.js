@@ -11,9 +11,6 @@ app.use(function(req, res, next) {
 
 app.use(bodyParser.urlencoded({extended: false});
 
-  next();
-});
-
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
