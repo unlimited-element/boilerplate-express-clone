@@ -10,7 +10,8 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
-  bodyParser.urlencoded({extended: false});
+  return bodyParser.urlencoded({extended: false});
+
   next();
 });
 
